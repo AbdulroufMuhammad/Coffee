@@ -11,7 +11,9 @@ const Header = () => {
         <motion.h1 
         initial={{x: 500, delay: 2}}
         animate={{x: 0}}
-        className='text-white text-3xl font-mono font-bold '>Coffee Joint</motion.h1>
+        className='text-white text-3xl font-mono 
+        font-bold '>Coffee Joint</motion.h1>
+        <hr className='w-[90vw]' />
       </div>
     </header>
   )
