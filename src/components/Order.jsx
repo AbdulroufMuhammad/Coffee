@@ -10,9 +10,9 @@ const Order = ({ coffee }) => {
     </div>
     <div className='-z-10 absolute inset-0 bg-black opacity-65'></div>
     <motion.div className="container order flex items-center flex-col py-44">
-      <h2 className=' text-white text-4xl font-mono font-light sm:text-5xl md:text-6xl text-wrap text-center'>Thank you for your order :)</h2>
+      <h2 className=' text-white text-4xl font-mono font-light sm:text-5xl md:text-6xl text-wrap text-center mt-[-20px]'>Thank you for your order :)</h2>
       <p className='my-4 text-lg text-white font-mono font-light'>You ordered a {coffee.coffeeType} with:</p>
-      {coffee.toppings.map(topping => <div className='text-white font-mono text-lg ' key={topping}>{topping}</div>)}
+      {coffee.toppings.map(topping => <li className= ' text-white font-mono text-lg ' key={topping}>{topping}</li>)}
 
       <div className="home-link gap-10 flex">
       <Link to="/">

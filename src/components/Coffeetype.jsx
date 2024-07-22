@@ -29,17 +29,25 @@ const CoffeeType = ({ addCoffeeType, coffee }) => {
       className='flex text-center flex-col justify-center items-center pt-32'>
       <h3 
   
-      className='text-white font-mono font-bold text-4xl'> Choose Your Coffee Type</h3>
-      <ul className='mt-10'>
-        {coffeeTypes.map(coffeeType => {
-          let spanClass = coffee.coffeeType === coffeeType ? 'active' : '';
-          return (
-            <li className=' cursor-pointer text-lg' key={coffeeType} onClick={() => addCoffeeType(coffeeType)}>
-              <span className='text-white font-light font-mono'>{coffeeType}</span>
-            </li>
-          );
-        })}
-      </ul>
+      className='text-white font-mono font-bold text-4xl mt-[-30px]'> Choose Your Coffee Type</h3>
+    <ul className='mt-4'>
+  {coffeeTypes.map(coffeeType => {
+    let isActive = coffee.coffeeType === coffeeType;
+    return (
+      <li 
+        className={`cursor-pointer text-lg ${isActive ? 'border rounded  w-60 hover:bg-slate-950 mb-2 ' : 'border rounded mb-2 w-60'}`} 
+        key={coffeeType} 
+        onClick={() => addCoffeeType(coffeeType)}
+      >
+        <span className={`text-white font-light font-mono ${isActive ? 'ml-2' : ''}`}>
+          {coffeeType}
+          {isActive && <span className="text-white pl-9">✔</span>}
+        </span>
+      </li>
+    );
+  })}
+</ul>
+
 <div className='flex flex-1 flex-row gap-6'>
 {coffee.coffeeType && (
         <div className="back">

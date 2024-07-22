@@ -21,18 +21,26 @@ const Toppings = ({ addTopping, coffee }) => {
     <motion.div
       initial={{y: -250}}
       animate={{y: 0}}
-    className="toppings container justify-center items-center py-36 flex flex-col">
+    className="toppings container justify-center items-center py-24 flex flex-col">
       <h3 className='sm:text-5xl md:text-6xl text-center text-white font-mono text-4xl'>Choose Toppings:</h3>
-      <ul className='mt-10'>
-        {toppings.map(topping => {
-          let spanClass = coffee.toppings.includes(topping) ? 'active' : '';
-          return (
-            <li className=' cursor-pointer text-white font-mono text-lg' key={topping} onClick={() => addTopping(topping)}>
-              <span className={{spanClass}}>{topping}</span>
-            </li>
-          );
-        })}
-      </ul>
+      <ul className='mt-4 '>
+  {toppings.map(topping => {
+    let isActive = coffee.toppings.includes(topping);
+    let spanClass = isActive ? 'active' : '';
+    return (
+      <li 
+        className='mb-2 cursor-pointer text-white font-mono text-lg border rounded px-40 py-2 text-center hover:bg-slate-950 ' 
+        key={topping} 
+        onClick={() => addTopping(topping)}
+      >
+        <span className={`${spanClass} inline-flex items-center`}>
+          {topping} {isActive && <span className="ml-2">✓</span>}
+        </span>
+      </li>
+    );
+  })}
+</ul>
+
 <div className='flex flex-1 flex-row gap-10'>
 {coffee.toppings.length > 0 && (
         <Link to="/coffeetype">
